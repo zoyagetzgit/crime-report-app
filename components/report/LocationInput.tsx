@@ -3,7 +3,7 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 const MapboxAutofill = dynamic(
-  () => import("./MapboxAutofill"),
+  () => import("@/components/MapboxAutofill"),
   { ssr: false }
 );
 interface LocationInputProps {
