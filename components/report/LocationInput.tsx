@@ -1,8 +1,11 @@
 // @ts-nocheck
 "use client";
 import { useState } from "react";
-
-
+import dynamic from "next/dynamic";
+const MapboxAutofill = dynamic(
+  () => import("./MapboxAutofill"),
+  { ssr: false }
+);
 interface LocationInputProps {
   value: string;
   onChange: (value: string) => void;
@@ -77,12 +80,18 @@ export function LocationInput({
         Location
       </label>
       <div className="relative">
-        <input
-  type="text"
-  value={value}
-  onChange={(e) => onChange(e.target.value)}
-  placeholder="Enter location"
-/>
+        <MapboxAutofill>
+  <input
+    type="text"
+    autoComplete="street-address"
+    value={value}
+    onChange={(e) => onChange(e.target.value)}
+    placeholder="Enter location or use pin"
+    className="w-full rounded-xl bg-zinc-900/50 border border-zinc-800 pl-4 pr-12 py-3.5
+               text-white transition-colors duration-200
+               focus:outline-none focus:ring-2 focus:ring-sky-500/40"
+  />
+</MapboxAutofill>
         <button
           type="button"
           onClick={getLocation}
