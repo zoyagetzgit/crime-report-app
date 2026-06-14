@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import { LocationInput } from "./LocationInput";
-const crypto = globalThis.crypto;
+
 
 const REPORT_TYPES = [
   "Theft",
@@ -75,8 +75,8 @@ export function ReportForm({ onComplete }: ReportFormProps) {
     }
   };
 
-  const generateReportId = useCallback(() => {
-  return crypto.randomUUID().replace(/-/g, "").slice(0, 16);
+ const generateReportId = useCallback(() => {
+  return Math.random().toString(36).substring(2, 18).toUpperCase();
 }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
