@@ -13,4 +13,4 @@ This is a anonymous reporting system built with Next.js 14, designed to provide 
 - GeminiAI
 - BCrypt for Password Encryption
 
-- ## <a name="website"> Deployed Website: <a/>
+- ## <a name="website"> Deployed Website: https://crime-report-app-quew.vercel.app/<a/>
